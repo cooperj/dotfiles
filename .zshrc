@@ -24,7 +24,7 @@ alias cd~!="cd /mnt/c/Users/Josh/"
 alias archbtw="neofetch"
 alias o="open ."
 alias gs='echo ""; echo "---------------------------------------------"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "---------------------------------------------"; echo ""; git status'
-
+alias gpgl="git push gitlab $(git_current_branch)" # push current branch to gitlab
 
 ## CUSTOM FUNCTIONS
 # Create a new directory and enter it
