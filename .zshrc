@@ -25,6 +25,7 @@ alias archbtw="neofetch"
 alias o="open ."
 alias gs='echo ""; echo "---------------------------------------------"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "---------------------------------------------"; echo ""; git status'
 alias gpgl="git push gitlab $(git_current_branch)" # push current branch to gitlab
+alias grby="git log --graph --pretty=oneline --abbrev-commit"
 alias compose-rc="docker-compose down && docker-compose up -d"
 
 ## CUSTOM FUNCTIONS
