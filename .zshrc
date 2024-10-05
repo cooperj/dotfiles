@@ -19,15 +19,18 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 alias python="python3"
 alias cls="clear"
-alias cdc="cd /mnt/c/code"
-alias cd~!="cd /mnt/c/Users/Josh/"
-alias archbtw="neofetch"
+alias cdc="cd ~/code"
+alias archbtw="fastfetch"
+alias neofetch="fastfetch"
 alias o="open ."
 alias gs='echo ""; echo "---------------------------------------------"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "---------------------------------------------"; echo ""; git status'
 alias gpgl="git push gitlab $(git_current_branch)" # push current branch to gitlab
 alias grby="git log --graph --pretty=oneline --abbrev-commit"
-alias compose-rc="docker-compose down && docker-compose up -d"
-alias risks="cd /Users/joshuacooper/code/risks; python main.py"
+
+# Jpg/png to webp (you must brew install parallel webp)
+alias jpg2webp="find . -name "*.jpg" | parallel -eta cwebp {} -o {.}.webp"
+alias jpeg2webp="find . -name "*.jpeg" | parallel -eta cwebp {} -o {.}.webp"
+alias png2webp="find . -name "*.png" | parallel -eta cwebp {} -o {.}.webp"
 
 ## CUSTOM FUNCTIONS
 # Create a new directory and enter it
@@ -42,3 +45,14 @@ export NVM_DIR="$HOME/.nvm"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
