@@ -27,12 +27,23 @@ alias gs='echo ""; echo "---------------------------------------------"; echo -e
 alias gpgl="git push gitlab $(git_current_branch)" # push current branch to gitlab
 alias grby="git log --graph --pretty=oneline --abbrev-commit"
 
-# Jpg/png to webp (you must brew install parallel webp)
-alias jpg2webp="find . -name "*.jpg" | parallel -eta cwebp {} -o {.}.webp"
-alias jpeg2webp="find . -name "*.jpeg" | parallel -eta cwebp {} -o {.}.webp"
-alias png2webp="find . -name "*.png" | parallel -eta cwebp {} -o {.}.webp"
-
 ## CUSTOM FUNCTIONS
+## Converts images to webp (brew install parallel webp)
+function towebp() {
+  local directory="$1"
+
+  if [[ -z "$directory" ]]; then
+    echo "Usage: towebp <directory>"
+    return 1
+  fi
+
+  find "$directory" -type f -iname "*.{png,jpg,jpeg,tiff,gif,heic}" | parallel --no-notice -eta cwebp {} -o {.}.webp
+
+  if [[ $? -ne 0 ]]; then
+    echo "Error converting images in $directory"
+  fi
+}
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
