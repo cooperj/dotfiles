@@ -37,7 +37,7 @@ function towebp() {
     return 1
   fi
 
-  find "$directory" -type f -iname "*.{png,jpg,jpeg,tiff,gif,heic}" | parallel --no-notice -eta cwebp {} -o {.}.webp
+  find "$directory" -type f -iname "*.png" -or -iname "*.jpg" -or -iname "*.jpeg" -or -iname "*.gif" -or -iname "*.tiff" -or -iname "*.heic" | parallel --no-notice -eta cwebp {} -o {.}.webp
 
   if [[ $? -ne 0 ]]; then
     echo "Error converting images in $directory"
