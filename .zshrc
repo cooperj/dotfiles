@@ -68,3 +68,14 @@ alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# If we are using ghostty, we need to set TERM to xterm-256color
+# This is because ghostty has some advanced features that means they are using a special term variable,
+# but we want to use the xterm-256color as apps are more compatible with it.
+# i.e. ssh will not work over a remote connection if TERM is set to ghostty
+# and nano will refuse to launch!
+# > I will likely remove this in the future if/when ghosty becomes more compatible with other apps.
+# SRC: https://vninja.net/2024/12/28/ghostty-workaround-for-missing-or-unsuitable-terminal-xterm-ghostty/
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
+fi

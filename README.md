@@ -39,9 +39,3 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ```
 bash 2-install-dotfiles.sh
 ```
-
-3.  Install & Configure VS Code
-
-```
-bash 3-vscode.sh
-```
