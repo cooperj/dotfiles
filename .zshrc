@@ -26,6 +26,9 @@ alias o="open ."
 alias gs='echo ""; echo "---------------------------------------------"; echo -e "   DO NOT FORGET TO PULL BEFORE COMMITTING"; echo "---------------------------------------------"; echo ""; git status'
 alias gtree="git log --graph --pretty=oneline --abbrev-commit"
 alias t="tmux"
+alias :q="exit"
+alias :wq="exit"
+alias q="exit"
 
 ## CUSTOM FUNCTIONS
 ## Converts images to webp (brew install parallel webp)

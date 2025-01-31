@@ -2,7 +2,7 @@
 
 # File credits: https://github.com/w3cj/dotfiles
 
-DOTFILES=(.zshrc .gitconfig)
+DOTFILES=(.zshrc .gitconfig .tmux.conf)
 
 #Remove old dotfiles and replace them
 for dotfile in $(echo ${DOTFILES[*]});
