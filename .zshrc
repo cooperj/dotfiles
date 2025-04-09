@@ -69,6 +69,20 @@ export NVM_DIR=~/.nvm
 alias node='unalias node ; unalias npm ; nvm use default ; node $@'
 alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
 
+# Lazy load rust tools 
+lazy_rust() {
+  # Remove this function after first use
+  unfunction rustc cargo rustup
+
+  # Actually source and run now
+  source $HOME/.cargo/env
+  "$@"
+}
+rustc() { lazy_rust rustc "$@"; }
+cargo() { lazy_rust cargo "$@"; }
+rustup() { lazy_rust rustup "$@"; }
+
+
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 
