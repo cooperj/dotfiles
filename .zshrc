@@ -62,12 +62,22 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# configure node version manager
-# https://stackoverflow.com/a/40798434/9351596
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-alias node='unalias node ; unalias npm ; nvm use default ; node $@'
-alias npm='unalias node ; unalias npm ; nvm use default ; npm $@'
+# # configure node version manager
+# # https://stackoverflow.com/a/40798434/9351596
+# export NVM_DIR=~/.nvm
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+# alias node='unalias npx ; unalias node ; unalias npm ; nvm use default ; node $@'
+# alias npm='unalias npx ; unalias node ; unalias npm ; nvm use default ; npm $@'
+# alias npx='unalias npx ; unalias node ; unalias npm ; nvm use default ; npx $@'
+
+# # ensure non-interactive processes still see Node tools
+# if [[ ! $- == *i* ]]; then
+#   export PATH="$HOME/.nvm/versions/node/$(nvm version default)/bin:$PATH"
+# fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 
 # Lazy load rust tools 
 lazy_rust() {
@@ -96,3 +106,12 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
     export TERM=xterm-256color
 fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/joshcooper/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export PATH=$PATH:$HOME/go/bin
+
+# Podman!
+alias docker='podman'

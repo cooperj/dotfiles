@@ -1,11 +1,11 @@
 [user]
-	email = hi@joshc.uk
+	email = joshcooper@lincoln.ac.uk
 	name = Josh Cooper
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILifaWjXIHq/36a4ABuDB+WoFalAqx9JWA3ML0qCx4Gt
 	
 [oh-my-zsh]
 	hide-status = 1
 	hide-dirty = 1
-
 [pull]
 	rebase = false
 
@@ -24,3 +24,9 @@
 
 [alias]
 	undo = reset --soft HEAD^
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
